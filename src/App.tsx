@@ -12,13 +12,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function BasicExample() {
   return (
-    <Router>
+    <Router> 
+
+
+
+
+      
       <div>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li>     
             <Link to="/about">About</Link>
           </li>
           <li>
