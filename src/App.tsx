@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -12,18 +12,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function BasicExample() {
   return (
-    <Router> 
-
-
-
-
-      
+    <Router>
       <div>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>     
+          <li>
             <Link to="/about">About</Link>
           </li>
           <li>
