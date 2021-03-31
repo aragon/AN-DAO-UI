@@ -22,9 +22,12 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
-    'no-use-before-define': "off",
+    'no-use-before-define': 'off',
     'react/prop-types': 0,
-    'react/no-unescaped-entities': "off",
+    'react/no-unescaped-entities': 'off',
+    // 'import/no-extraneous-dependencies': 'off',
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+
     'import/extensions': [
       'error',
       'ignorePackages',
