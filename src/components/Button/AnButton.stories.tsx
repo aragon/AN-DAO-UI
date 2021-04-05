@@ -20,6 +20,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   type: 'primary',
   label: 'New proposal',
+  disabled: true,
 };
 
 export const Secondary = Template.bind({});

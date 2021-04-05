@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@material-ui/core/styles';
+import { styled, useTheme } from '@material-ui/core/styles';
 import MUIButton, { ButtonProps } from '@material-ui/core/Button';
 
 export interface ANButtonProps extends ButtonProps {
@@ -45,8 +45,11 @@ export const ANButton: React.FC<any> = ({
   disabled,
   ...props
 }) => {
+  const theme = useTheme();
+  console.log(theme);
+
   const getBackground = () => {
-    if (disabled) return '#D9E0F5 !important';
+    if (disabled) return `${theme.custom.greyscale.soft} !important`;
     if (backgroundColor) return backgroundColor;
     if (type === 'primary')
       return 'linear-gradient(107.79deg, #00C2FF 1.46%, #01E8F7 100%)';

@@ -10,12 +10,7 @@ module.exports = {
       'warn',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
-    'no-console': [
-      'error',
-      {
-        allow: ['warn', 'error'],
-      },
-    ],
+    'no-console': 'off',
     'multiline-ternary': 0,
     'no-unused-vars': 'off',
     'no-shadow': 0,

@@ -41,9 +41,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --ignore-pattern public/aragon-ui",
+    "lint": "eslint --ignore-path .gitignore",
     "lint:js": "npm run lint:eslint -- . ",
-    "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --ignore-pattern public/aragon-ui --fix"
+    "lint:fix": "eslint --ignore-path .gitignore"
   },
   "eslintConfig": {
     "extends": [

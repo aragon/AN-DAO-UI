@@ -2,7 +2,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
   plugins: ['@typescript-eslint'],
-
   rules: {
     'jsx-a11y/href-no-hash': ['off'],
     'react/jsx-props-no-spreading': ['off'],
@@ -10,12 +9,7 @@ module.exports = {
       'warn',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
-    'no-console': [
-      'error',
-      {
-        allow: ['warn', 'error'],
-      },
-    ],
+    'no-console': 'off',
     'multiline-ternary': 0,
     'no-unused-vars': 'off',
     'no-shadow': 0,
@@ -26,7 +20,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/no-unescaped-entities': 'off',
     // 'import/no-extraneous-dependencies': 'off',
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 
     'import/extensions': [
       'error',
@@ -52,6 +46,7 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
+    'no-debugger': 'off',
     // You can override any rules you want
   },
   settings: {
