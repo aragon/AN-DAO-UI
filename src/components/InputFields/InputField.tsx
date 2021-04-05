@@ -50,7 +50,7 @@ export const InputField: React.FC<any> = ({ ...props }) => {
     <TextField
       label={'Primary field'}
       placeholder={'Placeholder'}
-      margin={'normal'}
+      margin={'none'}
       InputLabelProps={{ shrink: true, classes: inputLabelClasses }}
       InputProps={{ classes: inputBaseClasses, disableUnderline: true }}
     />
