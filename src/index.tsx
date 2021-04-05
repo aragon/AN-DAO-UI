@@ -9,11 +9,9 @@ import { lightTheme } from './AragonTheme';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main>
-      <ThemeProvider theme={lightTheme}>
-        <App />
-      </ThemeProvider>
-    </Main>
+    <ThemeProvider theme={lightTheme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

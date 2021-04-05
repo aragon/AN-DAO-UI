@@ -6,7 +6,7 @@ export interface ANButtonProps extends ButtonProps {
   /**
    * Button type
    */
-  type?: String;
+  type?: string;
   /**
    * If you want to override the color
    */
@@ -19,10 +19,10 @@ export interface ANButtonProps extends ButtonProps {
    * Button contents
    */
   label: string | React.ReactNode;
-  /**
-   * Any additional overwriting style.
-   */
-  style: object;
+  // /**
+  //  * Any additional overwriting style.
+  //  */
+  // style: object;
   /**
    * Optional click handler
    */
@@ -41,7 +41,7 @@ export const ANButton: React.FC<any> = ({
   // size = 'medium',
   backgroundColor,
   label,
-  style,
+  // style,
   disabled,
   ...props
 }) => {
@@ -112,10 +112,20 @@ export const ANButton: React.FC<any> = ({
     '& .MuiTouchRipple-root': {
       display: 'none',
     },
-    ...style,
+    // ...style,
   });
 
   return (
-    <ANButton onClick={disabled ? () => {} : props.onClick}>{label}</ANButton>
+    <ANButton
+      onClick={
+        disabled
+          ? () => {
+              return;
+            }
+          : props.onClick
+      }
+    >
+      {label}
+    </ANButton>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 
-/* eslint-disable import/no-extraneous-dependencies */
 import { Story, Meta } from '@storybook/react';
 
 import { ANButton, ANButtonProps } from './ANButton';
@@ -20,7 +19,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   type: 'primary',
   label: 'New proposal',
-  disabled: true,
 };
 
 export const Secondary = Template.bind({});

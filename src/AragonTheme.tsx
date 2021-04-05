@@ -1,6 +1,4 @@
-import React from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { green, orange } from '@material-ui/core/colors';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 interface CustomTheme {
   gradients: {
@@ -145,7 +143,7 @@ export const lightTheme = createMuiTheme({
       default: '#fff',
     },
   },
-
   typography,
   breakpoints,
 });
+export const test = 'abc';
