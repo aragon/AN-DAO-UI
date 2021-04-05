@@ -18,7 +18,7 @@ export const Dropdown: React.FC<any> = ({ ...props }) => {
       fontWeight: 400,
       border: `1px solid ${theme.custom.greyscale.soft}`,
       borderRadius: 8,
-      padding: '16px 13px',
+      padding: '13px 16px',
       '&:focus': {
         borderRadius: 8,
         background: 'white',
@@ -42,7 +42,7 @@ export const Dropdown: React.FC<any> = ({ ...props }) => {
       border: `1px solid ${theme.custom.greyscale.soft}`,
       '& li': {
         fontWeight: 400,
-        padding: '16px 13px',
+        padding: '13px 16px',
       },
       '& li:hover': {
         background: `${theme.custom.greyscale.light}`,

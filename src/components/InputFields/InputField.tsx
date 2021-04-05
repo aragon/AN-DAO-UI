@@ -37,7 +37,7 @@ export const InputField: React.FC<any> = ({ ...props }) => {
     },
     formControl: {
       'label + &': {
-        padding: '16px 13px',
+        padding: '13px 16px',
         border: `1px solid ${theme.custom.greyscale.soft}`,
         borderRadius: '8px',
         margin: '0px',
