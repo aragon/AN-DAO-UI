@@ -31,6 +31,14 @@ export interface ANButtonProps extends ButtonProps {
    * Disable button
    */
   disabled?: boolean;
+  /**
+   * width
+   */
+  width?: number;
+  /**
+   * height
+   */
+  height?: number;
 }
 
 /**
@@ -43,12 +51,14 @@ export const ANButton: React.FC<ANButtonProps> = ({
   label,
   // style,
   disabled,
+  width,
+  height,
   ...props
 }) => {
   const theme = useTheme();
 
   const getBackground = () => {
-    if (disabled) return `${theme.custom.greyscale.solid} !important`;
+    if (disabled) return `${theme.custom.greyscale.light} !important`;
     if (backgroundColor) return backgroundColor;
     if (type === 'primary')
       return 'linear-gradient(107.79deg, #00C2FF 1.46%, #01E8F7 100%)';
@@ -83,8 +93,8 @@ export const ANButton: React.FC<ANButtonProps> = ({
 
   const ANButton = styled(MUIButton)({
     color: getColor(),
-    height: 46,
-    width: 154,
+    height: height || 46,
+    width: width || 154,
     background: getBackground(),
     boxSizing: 'border-box',
     boxShadow: disabled

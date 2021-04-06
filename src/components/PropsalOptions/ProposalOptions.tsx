@@ -1,130 +1,114 @@
 import React from 'react';
 import { styled, useTheme } from '@material-ui/core/styles';
-import MUIButton, { ButtonProps } from '@material-ui/core/Button';
-
-export interface ANButtonProps extends ButtonProps {
+import { ANButton } from '../Button/ANButton';
+import TextField from '@material-ui/core/TextField';
+import removeOptionIcon from '../../images/ds/remove-option.svg';
+export interface ProposalOptionsProps {
   /**
-   * Button type
+   * Current set of Options
    */
-  type?: string;
+  options: Array<any>;
   /**
-   * If you want to override the color
+   * Callback to Add Option
    */
-  backgroundColor?: string;
+  onAddOption: any;
   /**
-   * How large should the button be?
+   * Callback to delete an option
    */
-  size?: 'small' | 'medium' | 'large';
+  onDeleteOption: any;
   /**
-   * Button contents
+   * Callback to update the current selected option
    */
-  label: string | React.ReactNode;
-  // /**
-  //  * Any additional overwriting style.
-  //  */
-  // style: object;
+  onUpdateOption: any;
   /**
-   * Optional click handler
+   * width of the widget
    */
-  onClick?: () => void;
+  width: number;
   /**
-   * Disable button
+   * height of the widget
    */
-  disabled?: boolean;
+  height: number;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const ANButton: React.FC<ANButtonProps> = ({
-  type = 'primary',
-  // size = 'medium',
-  backgroundColor,
-  label,
-  // style,
-  disabled,
+const ProposalOptions: React.FC<ProposalOptionsProps> = ({
+  options,
+  onAddOption,
+  onDeleteOption,
+  onUpdateOption,
+  width,
+  height,
   ...props
 }) => {
-  const theme = useTheme();
-
-  const getBackground = () => {
-    if (disabled) return `${theme.custom.greyscale.soft} !important`;
-    if (backgroundColor) return backgroundColor;
-    if (type === 'primary')
-      return 'linear-gradient(107.79deg, #00C2FF 1.46%, #01E8F7 100%)';
-    if (type === 'challenge')
-      return 'linear-gradient(107.79deg, #F7B201 1.46%, #FF7A00 100%)';
-    return '#ffffff';
-  };
-  const getBackgroundForHoveredState = () => {
-    if (disabled) return '#D9E0F5 !important';
-    if (backgroundColor) return backgroundColor;
-    if (type === 'primary')
-      return 'linear-gradient(107.79deg, #82E1FF 1.46%, #3CF3FF 100%)';
-    if (type === 'challenge')
-      return 'linear-gradient(107.79deg, #FFD056 1.46%, #FF9636 100%)';
-    return '#ffffff';
-  };
-  const getBackgroundForPressedState = () => {
-    if (disabled) return '#D9E0F5 !important';
-    if (backgroundColor) return backgroundColor;
-    if (type === 'primary')
-      return 'linear-gradient(107.79deg, #01B9F2 1.46%, #01DBE9 100%)';
-    if (type === 'challenge')
-      return 'linear-gradient(107.79deg, #EBA900 1.46%, #ED7100 100%)';
-    return '#EFF1F7;';
-  };
-
-  const getColor = () => {
-    if (disabled) return '#B0BDE5 !important';
-    if (type === 'secondary') return '#20232C';
-    return '#ffffff';
-  };
-
-  const ANButton = styled(MUIButton)({
-    color: getColor(),
-    height: 46,
-    width: 154,
-    background: getBackground(),
+  // const [val, setVal] = React.useState('0');
+  const StyledTextField = styled(TextField)({
+    background: '#FFFFFF',
+    border: '1px solid #D9E0F5',
     boxSizing: 'border-box',
-    boxShadow: disabled
-      ? 'none !important'
-      : '0px 3px 3px rgba(116, 131, 178, 0.2)',
-    borderRadius: '8px',
-    fontFamily: 'Manrope',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: '16px',
-    lineHeight: '22px',
-    textTransform: 'none',
-    animation: 'none',
-    transition: 'none',
-    '&:hover': {
-      background: getBackgroundForHoveredState(),
-      boxShadow: '0px 4px 4px rgba(116, 131, 178, 0.25)',
-      color: type === 'secondary' ? '#7483B2' : 'white',
+    borderRadius: 8,
+    textAlign: 'center',
+    width: width || 396,
+    height: height || 46,
+    display: 'block',
+    marginBottom: 12,
+    paddingLeft: 18,
+    paddingRight: 18,
+    '& .MuiInput-root': {
+      width: '100%',
+      height: '100%',
     },
-    '&:active': {
-      background: getBackgroundForPressedState(),
-      boxShadow: '0px 1px 1px rgba(116, 131, 178, 0.35)',
+    '& .MuiInputBase-input': {
+      textAlign: 'center',
+      width: '100%',
     },
-    '& .MuiTouchRipple-root': {
-      display: 'none',
+    '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+      borderBottom: 'none',
     },
-    // ...style,
+    '& .MuiInput-underline': {
+      '&::before': {
+        borderBottom: 'none',
+      },
+      '&::after': {
+        borderBottom: 'none',
+      },
+    },
   });
 
   return (
-    <ANButton
-      onClick={
-        disabled
-          ? () => {
-              return;
-            }
-          : props.onClick
-      }
-    >
-      {label}
-    </ANButton>
+    <>
+      {options.map((option, index) => {
+        return (
+          <StyledTextField
+            key={option.value + index}
+            value={option.value}
+            onChange={(e) => {
+              onUpdateOption(e.target.value, index);
+            }}
+            InputProps={{
+              startAdornment: index,
+              endAdornment:
+                options.length > 1 ? (
+                  <img
+                    src={removeOptionIcon}
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => onDeleteOption(index)}
+                  />
+                ) : null,
+            }}
+          />
+        );
+      })}
+      <ANButton
+        onClick={onAddOption}
+        type="secondary"
+        label="Add option"
+        width={width || 396}
+        height={height || 46}
+      />
+    </>
   );
 };
+
+export default ProposalOptions;
