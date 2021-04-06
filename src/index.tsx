@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { Main } from '@aragon/ui';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from '@material-ui/core/styles';
 import { lightTheme } from './AragonTheme';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={lightTheme}>
-      <App />
+      {/* for date picker https://material-ui-pickers.dev/getting-started/installation */}
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <App />
+      </MuiPickersUtilsProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),

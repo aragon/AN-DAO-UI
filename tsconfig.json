@@ -18,10 +18,28 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "containers/*": [
+        "/containers/*",
+      ],
+      "components/*": [
+        "/components/*",
+      ],
+      "images/*": [
+        "/images/*",
+      ],
+      "utils/*": [
+        "/utils/*",
+      ],
+      "hooks/*": [
+        "/hooks/*",
+      ],
+    }
   },
   "include": [
     "src",
     "decs.d.ts"
-  ]
+  ],
 }

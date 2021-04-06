@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 
 interface CustomTheme {
   gradients: {
@@ -145,5 +146,49 @@ export const lightTheme = createMuiTheme({
   },
   typography,
   breakpoints,
+  overrides: {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: '#00C2FF',
+      },
+    },
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        // backgroundColor: lightBlue.A200,
+        // color: "white",
+      },
+    },
+    MuiPickersDay: {
+      daySelected: {
+        backgroundColor: '#00C2FF',
+      },
+      dayDisabled: {
+        color: lightBlue['100'],
+      },
+      current: {
+        color: lightBlue['900'],
+      },
+    },
+    MuiPickersClock: {
+      pin: {
+        backgroundColor: '#00C2FF',
+      },
+    },
+    MuiPickersClockPointer: {
+      thumb: {
+        border: '14px solid #00C2FF',
+      },
+      noPoint: {
+        backgroundColor: '#00C2FF',
+      },
+      pointer: {
+        backgroundColor: '#00C2FF',
+      },
+    },
+    MuiPickersModal: {
+      dialogAction: {
+        color: lightBlue['400'],
+      },
+    },
+  },
 });
-export const test = 'abc';
