@@ -48,7 +48,7 @@ export const ANButton: React.FC<ANButtonProps> = ({
   const theme = useTheme();
 
   const getBackground = () => {
-    if (disabled) return `${theme.custom.greyscale.soft} !important`;
+    if (disabled) return `${theme.custom.greyscale.solid} !important`;
     if (backgroundColor) return backgroundColor;
     if (type === 'primary')
       return 'linear-gradient(107.79deg, #00C2FF 1.46%, #01E8F7 100%)';
